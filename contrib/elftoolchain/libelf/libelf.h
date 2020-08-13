@@ -29,6 +29,7 @@
 #ifndef	_LIBELF_H_
 #define	_LIBELF_H_
 
+#include <time.h>
 #include <sys/types.h>
 #include <sys/elf32.h>
 #include <sys/elf64.h>

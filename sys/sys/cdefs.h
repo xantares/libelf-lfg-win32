@@ -153,7 +153,7 @@
  * __XSTRING is like __STRING, but it expands any macros in its argument
  * first.  It is only available with ANSI C.
  */
-#if defined(__STDC__) || defined(__cplusplus)
+#if defined(__STDC__) || defined(__cplusplus) || defined(_WIN32)
 #define	__P(protos)	protos		/* full-blown ANSI C */
 #define	__CONCAT1(x,y)	x ## y
 #define	__CONCAT(x,y)	__CONCAT1(x,y)
@@ -873,7 +873,9 @@
 #define	__no_lock_analysis	__lock_annotate(no_thread_safety_analysis)
 
 /* Guard variables and structure members by lock. */
+#ifndef _WIN32
 #define	__guarded_by(x)		__lock_annotate(guarded_by(x))
+#endif
 #define	__pt_guarded_by(x)	__lock_annotate(pt_guarded_by(x))
 
 #endif /* !_SYS_CDEFS_H_ */

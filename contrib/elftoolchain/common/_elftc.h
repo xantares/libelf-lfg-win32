@@ -323,6 +323,10 @@ struct name {							\
 #endif	/* __GNUC__ */
 #endif
 
+#if defined(_WIN32)
+#define	ELFTC_VCSID(ID)		/**/
+#endif
+
 #endif	/* ELFTC_VCSID */
 
 /*

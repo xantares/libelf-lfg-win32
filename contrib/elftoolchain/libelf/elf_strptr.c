@@ -24,7 +24,11 @@
  * SUCH DAMAGE.
  */
 
+#ifdef _WIN32
+#define     roundup2(x, y)  (((x)+((y)-1))&(~((y)-1))) /* if y is powers of two */
+#else
 #include <sys/param.h>
+#endif
 
 #include <assert.h>
 #include <gelf.h>

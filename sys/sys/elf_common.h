@@ -33,6 +33,15 @@
 #ifndef _SYS_ELF_COMMON_H_
 #define	_SYS_ELF_COMMON_H_ 1
 
+#include <stdint.h>
+
+#ifdef _WIN32
+typedef uint32_t u_int32_t;
+typedef uint32_t gid_t;
+typedef uint32_t uid_t;
+typedef uint16_t mode_t;
+#endif
+
 /*
  * ELF definitions that are independent of architecture or word size.
  */

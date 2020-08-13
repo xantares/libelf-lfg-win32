@@ -157,6 +157,14 @@
 
 #endif
 
+#if defined(_WIN64)
+
+#define	LIBELF_ARCH		EM_X86_64
+#define	LIBELF_BYTEORDER	ELFDATA2LSB
+#define	LIBELF_CLASS		ELFCLASS64
+
+#endif
+
 /*
  * GNU & Linux compatibility.
  *
