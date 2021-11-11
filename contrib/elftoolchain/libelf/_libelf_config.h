@@ -157,13 +157,21 @@
 
 #endif
 
-#if defined(_WIN64)
+#ifdef _WIN32
 
+#if	defined(_M_X64)
 #define	LIBELF_ARCH		EM_X86_64
 #define	LIBELF_BYTEORDER	ELFDATA2LSB
 #define	LIBELF_CLASS		ELFCLASS64
-
+#elif	defined(_M_IX86)
+#define	LIBELF_ARCH		EM_386
+#define	LIBELF_BYTEORDER	ELFDATA2LSB
+#define	LIBELF_CLASS		ELFCLASS32
+#else
+#error	Unknown Windows architecture.
 #endif
+
+#endif  /* _WIN32 */
 
 /*
  * GNU & Linux compatibility.
