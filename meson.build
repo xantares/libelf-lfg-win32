@@ -66,6 +66,9 @@ libelf = static_library(
   install : true,
 )
 
+install_headers('contrib/elftoolchain/libelf/libelf.h', 'contrib/elftoolchain/libelf/gelf.h')
+install_headers('sys/sys/elf32.h', 'sys/sys/elf64.h', 'sys/sys/elf_common.h', subdir : 'sys')
+
 libelf_dep = declare_dependency(
   link_with : libelf,
   include_directories : include_directories('contrib/elftoolchain/common', 'contrib/elftoolchain/libelf', 'sys'),
